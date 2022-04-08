@@ -19,7 +19,7 @@ public class Utils {
 	return generateRandomString(length);
     }
 
-    // Returns true if value is null, empty string (length == 0) or only white
+    // Returns true if value is null, empty string (length == 0) or only white space
     // spaces
     public boolean isNullOrBlank(String value) {
 	return value == null || value.isBlank();

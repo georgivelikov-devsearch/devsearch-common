@@ -43,14 +43,6 @@ public class Utils {
 	return dateFormat.format(date);
     }
 
-    public static Mapper getStrictModelMapper() {
-	return strictModelMapper;
-    }
-
-    public static <D> D map(Object source, Class<D> destinationType) {
-	return strictModelMapper.map(source, destinationType);
-    }
-
     private static String generateRandomString(int length) {
 	StringBuilder returnValue = new StringBuilder();
 

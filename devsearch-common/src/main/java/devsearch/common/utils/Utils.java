@@ -14,6 +14,7 @@ import devsearch.common.utils.mapper.StrictMapperImpl;
 
 public class Utils {
     private static final Random RANDOM = new SecureRandom();
+    private Mapper strictModelMapper = new StrictMapperImpl();
 
     public String generatePublicId() {
 	return generatePublicId(DEFAULT_ID_LENGTH);
@@ -42,8 +43,12 @@ public class Utils {
 	return dateFormat.format(date);
     }
 
-    public Mapper getModelMapper() {
-	return new StrictMapperImpl();
+    public Mapper getStrictModelMapper() {
+	return this.strictModelMapper;
+    }
+
+    public <D> D map(Object source, Class<D> destinationType) {
+	return this.strictModelMapper.map(source, destinationType);
     }
 
     private String generateRandomString(int length) {

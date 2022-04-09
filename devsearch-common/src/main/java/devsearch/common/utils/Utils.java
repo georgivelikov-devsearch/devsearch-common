@@ -5,8 +5,12 @@ import static devsearch.common.utils.Constants.DEFAULT_DATE_FORMATTER;
 import static devsearch.common.utils.Constants.DEFAULT_ID_LENGTH;
 
 import java.security.SecureRandom;
+import java.text.DateFormat;
 import java.util.Date;
 import java.util.Random;
+
+import devsearch.common.utils.mapper.Mapper;
+import devsearch.common.utils.mapper.StrictMapperImpl;
 
 public class Utils {
     private static final Random RANDOM = new SecureRandom();
@@ -31,7 +35,15 @@ public class Utils {
     }
 
     public String getDateString(Date date) {
-	return DEFAULT_DATE_FORMATTER.format(date);
+	return getDateString(date, DEFAULT_DATE_FORMATTER);
+    }
+
+    public String getDateString(Date date, DateFormat dateFormat) {
+	return dateFormat.format(date);
+    }
+
+    public Mapper getModelMapper() {
+	return new StrictMapperImpl();
     }
 
     private String generateRandomString(int length) {

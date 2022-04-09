@@ -14,44 +14,44 @@ import devsearch.common.utils.mapper.StrictMapperImpl;
 
 public class Utils {
     private static final Random RANDOM = new SecureRandom();
-    private Mapper strictModelMapper = new StrictMapperImpl();
+    private static final Mapper strictModelMapper = new StrictMapperImpl();
 
-    public String generatePublicId() {
+    public static String generatePublicId() {
 	return generatePublicId(DEFAULT_ID_LENGTH);
     }
 
-    public String generatePublicId(int length) {
+    public static String generatePublicId(int length) {
 	return generateRandomString(length);
     }
 
     // Returns true if value is null, empty string (length == 0) or only white space
     // spaces
-    public boolean isNullOrBlank(String value) {
+    public static boolean isNullOrBlank(String value) {
 	return value == null || value.isBlank();
     }
 
     // Returns true if value is null or empty string (length == 0)
-    public boolean isNullOrEmpty(String value) {
+    public static boolean isNullOrEmpty(String value) {
 	return value == null || value.isEmpty();
     }
 
-    public String getDateString(Date date) {
+    public static String getDateString(Date date) {
 	return getDateString(date, DEFAULT_DATE_FORMATTER);
     }
 
-    public String getDateString(Date date, DateFormat dateFormat) {
+    public static String getDateString(Date date, DateFormat dateFormat) {
 	return dateFormat.format(date);
     }
 
-    public Mapper getStrictModelMapper() {
-	return this.strictModelMapper;
+    public static Mapper getStrictModelMapper() {
+	return strictModelMapper;
     }
 
-    public <D> D map(Object source, Class<D> destinationType) {
-	return this.strictModelMapper.map(source, destinationType);
+    public static <D> D map(Object source, Class<D> destinationType) {
+	return strictModelMapper.map(source, destinationType);
     }
 
-    private String generateRandomString(int length) {
+    private static String generateRandomString(int length) {
 	StringBuilder returnValue = new StringBuilder();
 
 	for (int i = 0; i < length; i++) {

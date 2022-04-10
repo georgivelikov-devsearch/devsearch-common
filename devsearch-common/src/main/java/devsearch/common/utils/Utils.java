@@ -3,24 +3,29 @@ package devsearch.common.utils;
 import static devsearch.common.utils.Constants.ALPHABET;
 import static devsearch.common.utils.Constants.DEFAULT_DATE_FORMATTER;
 import static devsearch.common.utils.Constants.DEFAULT_ID_LENGTH;
+import static devsearch.common.utils.Constants.DEFAULT_PUBLIC_KEY_LENGTH;
 
 import java.security.SecureRandom;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Random;
 
-import devsearch.common.utils.mapper.Mapper;
-import devsearch.common.utils.mapper.StrictMapperImpl;
-
 public class Utils {
     private static final Random RANDOM = new SecureRandom();
-    private static final Mapper strictModelMapper = new StrictMapperImpl();
 
-    public static String generatePublicId() {
-	return generatePublicId(DEFAULT_ID_LENGTH);
+    public static String generateId() {
+	return generateId(DEFAULT_ID_LENGTH);
     }
 
-    public static String generatePublicId(int length) {
+    public static String generateId(int length) {
+	return generateRandomString(length);
+    }
+
+    public static String generatePublicKey() {
+	return generatePublicKey(DEFAULT_PUBLIC_KEY_LENGTH);
+    }
+
+    public static String generatePublicKey(int length) {
 	return generateRandomString(length);
     }
 
